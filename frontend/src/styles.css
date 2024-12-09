@@ -98,14 +98,14 @@ footer {
   background-color: #0056b3;
 }
 
-/* Estilos para tarjetas de productos */
+/* Ajustes para tarjetas de productos */
 .card, .product-card {
   background-color: white;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin: 1rem;
-  padding: 1.5rem;
+  padding: 1rem; /* Espaciado uniforme */
   text-align: center;
   transition: transform 0.3s ease-in-out;
 }
@@ -116,37 +116,52 @@ footer {
 
 .card img, .product-card img {
   width: 100%;
+  height: auto; /* Mantiene proporción de la imagen */
+  margin-bottom: 0.5rem;
   border-radius: 8px;
 }
 
 .card h3, .product-card h3 {
-  margin-bottom: 0.5rem;
+  margin: 0.5rem 0;
+  color: #333; /* Color de título */
+  font-size: 1.1rem;
 }
 
 .card p, .product-card p {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+  color: #666; /* Color de descripción */
+  font-size: 0.9rem;
 }
 
 .card button, .product-card button {
-  background-color: #28a745;
+  background-color: #007bff;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
 }
 
 .card button:hover, .product-card button:hover {
-  background-color: #218838;
+  background-color: #0056b3;
 }
 
-/* Grilla de productos */
+/* Ajustes para la grilla de productos */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Mejor espacio para descripciones */
   gap: 1.5rem;
   margin: 2rem 0;
 }
+
+.product-grid .product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 
 /* Botón principal */
 button {

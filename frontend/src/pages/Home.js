@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-// Productos de ejemplo
-const allProducts = [
-  { id: 1, name: 'Cartera Roja', price: 2000, category: 'Accesorios', image: 'https://via.placeholder.com/150' },
-  { id: 2, name: 'Zapatos de Cuero', price: 3500, category: 'Calzado', image: 'https://via.placeholder.com/150' },
-  { id: 3, name: 'Bufanda de Lana', price: 1500, category: 'Ropa', image: 'https://via.placeholder.com/150' },
-  { id: 4, name: 'Camisa Blanca', price: 2500, category: 'Ropa', image: 'https://via.placeholder.com/150' },
-  { id: 5, name: 'Mochila Negra', price: 3000, category: 'Accesorios', image: 'https://via.placeholder.com/150' },
-  { id: 6, name: 'Zapatillas Urbanas', price: 4000, category: 'Calzado', image: 'https://via.placeholder.com/150' },
-];
 
+const allProducts = [
+  { id: 1, name: 'Termo Lumilagro', description: 'Termo jarra térmica de vidrio de 1L con tapón a rosca.', category: 'Termos', image: 'https://via.placeholder.com/150' },
+  { id: 2, name: 'Botella Metálica', description: 'Botella metálica de 500ml con gancho para colgar.', category: 'Botellas', image: 'https://via.placeholder.com/150' },
+  { id: 3, name: 'Mate Autocebante', description: 'Termo mate autocebante con válvula de retención y bombilla de metal.', category: 'Mates', image: 'https://via.placeholder.com/150' },
+  { id: 4, name: 'Sartén de Teflón', description: 'Sartén antiadherente Nro 24 con capacidad de 1.8L.', category: 'Cocina', image: 'https://via.placeholder.com/150' },
+  { id: 5, name: 'Paellera de Teflón', description: 'Paellera antiadherente de 36cm con capacidad para 4.6L.', category: 'Cocina', image: 'https://via.placeholder.com/150' },
+  { id: 6, name: 'Mate de Madera', description: 'Mate de madera pintado a mano, ideal para regalo.', category: 'Mates', image: 'https://via.placeholder.com/150' },
+  { id: 7, name: 'Vaso Térmico', description: 'Vaso térmico de acero inoxidable con tapa antiderrame, 380ml.', category: 'Termos', image: 'https://via.placeholder.com/150' },
+  { id: 8, name: 'Wok de Teflón', description: 'Wok antiadherente de 28cm con capacidad para 4.3L.', category: 'Cocina', image: 'https://via.placeholder.com/150' },
+];
 const Home = () => {
   const [products, setProducts] = useState(allProducts);
 
@@ -34,9 +35,10 @@ const Home = () => {
       <h2>Categorías</h2>
       <div className="button-group">
         <button onClick={() => filterByCategory('Todos')}>Todos</button>
-        <button onClick={() => filterByCategory('Ropa')}>Ropa</button>
-        <button onClick={() => filterByCategory('Calzado')}>Calzado</button>
-        <button onClick={() => filterByCategory('Accesorios')}>Accesorios</button>
+        <button onClick={() => filterByCategory('Cocina')}>Cocina</button>
+        <button onClick={() => filterByCategory('Termos')}>Termos</button>
+        <button onClick={() => filterByCategory('Mates')}>Mates</button>
+        <button onClick={() => filterByCategory('Botellas')}>Botellas</button>
       </div>
 
       {/* Grilla de Productos */}
