@@ -1,0 +1,239 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+h1, h2, h3 {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+a:hover {
+  color: #0056b3;
+}
+
+/* Contenedor principal */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Estilo del header */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ff7f50;
+  color: white;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+  color: white;
+  margin: 0 0.5rem;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+/* Sección de bienvenida */
+.welcome-section {
+  background-color: #ff7f50;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+/* Botones de filtro */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.button-group button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.button-group button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos para tarjetas de productos */
+.card, .product-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover, .product-card:hover {
+  transform: scale(1.05);
+}
+
+.card img, .product-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.card h3, .product-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.card p, .product-card p {
+  margin-bottom: 1rem;
+}
+
+.card button, .product-card button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card button:hover, .product-card button:hover {
+  background-color: #218838;
+}
+
+/* Grilla de productos */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+/* Botón principal */
+button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin: 1rem auto;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+/* Flexbox para alinear elementos */
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Estilos para el carrito */
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.cart-item p {
+  margin: 0;
+}
+
+/* Estilos de la página de ayuda */
+.help-section {
+  background-color: #f4f4f4;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.help-section h3 {
+  margin-bottom: 1rem;
+  color: #007bff;
+}
+
+.help-section p {
+  margin-bottom: 1rem;
+}
+
+.whatsapp-link {
+  display: inline-block;
+  color: #25d366;
+  font-size: 1.2rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.whatsapp-link:hover {
+  text-decoration: underline;
+}
+
+/* Estilos del checkout */
+.checkout-container {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+}
+
+.checkout-container h3 {
+  margin-bottom: 1rem;
+}
+
+select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
