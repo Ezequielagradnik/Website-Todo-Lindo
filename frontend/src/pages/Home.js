@@ -28,7 +28,7 @@ const Home = () => {
       {/* Sección de Bienvenida */}
       <section className="welcome-section">
         <h1>Bienvenido a Todo Lindo</h1>
-        <p>Tu tienda de productos exclusivos y de alta calidad.</p>
+        <p>Tu bazar y jugueteria de confianza.</p>
       </section>
 
       {/* Botones de Filtro */}
