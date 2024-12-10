@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 const Cart = () => {
   // Estado del carrito con ejemplos
   const [cart, setCart] = useState([
-    { id: 1, name: 'Cartera Roja', price: 2000, quantity: 1 },
-    { id: 2, name: 'jesucristo estatua', price: 3500, quantity: 1 },
+    { id: 1, name: 'Termo Lumilagro', price: 2000, quantity: 1 },
+    { id: 2, name: 'Botella Metalica', price: 3500, quantity: 1 },
     { id: 3, name: 'arbol de navidad', price: 15000, quantity: 2 },
     { id: 4, name: 'espada', price: 2500, quantity: 1 },
   ]);
@@ -20,7 +20,7 @@ const Cart = () => {
   }, [cart]);
 
   const handleCheckout = () => {
-    navigate('/checkout');
+    navigate('/Checkout');
   };
 
   const removeFromCart = (id) => {

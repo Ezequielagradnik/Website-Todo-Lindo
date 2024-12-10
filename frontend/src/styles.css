@@ -12,18 +12,21 @@ body {
   color: #333;
 }
 
+/* Títulos */
 h1, h2, h3 {
   text-align: center;
   margin: 1rem 0;
 }
 
+/* Enlaces */
 a {
   text-decoration: none;
   color: #007bff;
+  transition: color 0.3s ease-in-out;
 }
 
 a:hover {
-  color: #0056b3;
+  color: #ff7f50;
 }
 
 /* Contenedor principal */
@@ -39,41 +42,65 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #ff7f50;
+  background: linear-gradient(135deg, #ff7f50, #ff4e00);
   color: white;
   padding: 1rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 nav a {
   color: white;
   margin: 0 0.5rem;
+  transition: transform 0.2s;
 }
 
 nav a:hover {
   text-decoration: underline;
+  transform: scale(1.1);
 }
 
 /* Footer */
 footer {
-  background-color: #333;
+  background: #333;
   color: white;
   text-align: center;
   padding: 1rem 0;
-  position: relative;
-  bottom: 0;
-  width: 100%;
   margin-top: 2rem;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Sección de bienvenida */
 .welcome-section {
-  background-color: #ff7f50;
+  background: linear-gradient(135deg, #ff7f50, #ff4e00);
   color: white;
   text-align: center;
-  padding: 2rem;
+  padding: 2.5rem 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.welcome-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Botones */
+button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.2rem;
   border-radius: 8px;
-  margin-bottom: 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #218838;
+  transform: scale(1.05);
 }
 
 /* Botones de filtro */
@@ -81,174 +108,221 @@ footer {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin: 1rem 0;
+  margin: 2rem 0;
 }
 
 .button-group button {
-  padding: 0.5rem 1rem;
-  border: none;
   background-color: #007bff;
   color: white;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s;
 }
 
 .button-group button:hover {
   background-color: #0056b3;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* Ajustes para tarjetas de productos */
+/* Tarjetas de productos */
 .card, .product-card {
-  background-color: white;
+  background: white;
   border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin: 1rem;
-  padding: 1rem; /* Espaciado uniforme */
+  border-radius: 10px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
   text-align: center;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover, .product-card:hover {
-  transform: scale(1.05);
+  transform: translateY(-10px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
 }
 
 .card img, .product-card img {
   width: 100%;
-  height: auto; /* Mantiene proporción de la imagen */
-  margin-bottom: 0.5rem;
-  border-radius: 8px;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 1rem;
 }
 
 .card h3, .product-card h3 {
-  margin: 0.5rem 0;
-  color: #333; /* Color de título */
-  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  color: #333;
 }
 
 .card p, .product-card p {
-  margin-bottom: 0.5rem;
-  color: #666; /* Color de descripción */
-  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  color: #555;
 }
 
 .card button, .product-card button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: background-color 0.3s;
+  background-color: #ff7f50;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .card button:hover, .product-card button:hover {
-  background-color: #0056b3;
+  background-color: #ff4e00;
 }
 
-/* Ajustes para la grilla de productos */
+/* Grilla de productos */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Mejor espacio para descripciones */
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
   margin: 2rem 0;
 }
 
-.product-grid .product-card {
+/* Estilos para carrito */
+.cart-item {
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 1.5rem;
+  margin: 0.5rem 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
 }
 
+.cart-item:hover {
+  transform: scale(1.02);
+}
 
-/* Botón principal */
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+/* Contenedor principal */
+.container {
+  width: 90%;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos */
+h2, h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #444;
+}
+
+/* Sección del Checkout */
+.checkout-section {
+  margin-bottom: 2rem;
+}
+
+.checkout-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+/* Estilo de los inputs y selects */
+.checkout-section select,
+.checkout-section input {
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.checkout-section input:focus,
+.checkout-section select:focus {
+  border-color: #ff7f50;
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 127, 80, 0.5);
+}
+
+/* Botones */
 button {
+  display: block;
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 1rem;
   background-color: #28a745;
   color: white;
   border: none;
-  padding: 0.7rem 1.2rem;
   border-radius: 5px;
+  font-size: 1.1rem;
   cursor: pointer;
-  display: block;
-  margin: 1rem auto;
-  font-size: 1rem;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 button:hover {
   background-color: #218838;
+  transform: scale(1.02);
 }
 
-/* Flexbox para alinear elementos */
-.flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* Botón de Mercado Pago */
+.mercado-pago-button {
+  background-color: #009ee3;
 }
 
-/* Estilos para el carrito */
-.cart-item {
-  display: flex;
-  justify-content: space-between;
-  background-color: white;
-  padding: 1rem;
-  margin: 0.5rem 0;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+.mercado-pago-button:hover {
+  background-color: #007bb6;
 }
 
-.cart-item p {
-  margin: 0;
+/* Estilo del formulario de tarjeta */
+.card-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
 }
 
-/* Estilos de la página de ayuda */
-.help-section {
-  background-color: #f4f4f4;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.card-form input {
+  grid-column: span 2;
 }
 
-.help-section h3 {
-  margin-bottom: 1rem;
-  color: #007bff;
+.card-form input[name="cardNumber"] {
+  grid-column: span 2;
 }
 
-.help-section p {
-  margin-bottom: 1rem;
+.card-form input[name="cardName"],
+.card-form input[name="expiryDate"],
+.card-form input[name="cvv"] {
+  grid-column: span 1;
 }
 
-.whatsapp-link {
-  display: inline-block;
-  color: #25d366;
-  font-size: 1.2rem;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.whatsapp-link:hover {
-  text-decoration: underline;
-}
-
-/* Estilos del checkout */
-.checkout-container {
-  background-color: white;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+/* Footer */
+footer {
   margin-top: 2rem;
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
 }
 
-.checkout-container h3 {
-  margin-bottom: 1rem;
-}
-
-select {
-  width: 100%;
-  padding: 0.5rem;
-  margin-bottom: 1rem;
-  border-radius: 5px;
-  border: 1px solid #ddd;
+/* Animación de fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
