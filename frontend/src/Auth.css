@@ -1,13 +1,19 @@
 .auth-container {
+    position: fixed; /* Permanece fijo en la pantalla */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background: linear-gradient(135deg, #ff7f50, #ff4e00);
+    backdrop-filter: blur(10px); /* Desenfoque del contenido detrás */
+    background-color: rgba(0, 0, 0, 0.2); /* Oscurece un poco */
+    z-index: 1000; /* Asegura que esté por encima de la Home */
   }
   
   .auth-form {
-    background: white;
+    background: rgba(255, 255, 255, 0.85); /* Fondo blanco semi-transparente */
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -40,7 +46,6 @@
     cursor: pointer;
     font-size: 1rem;
     transition: background-color 0.3s ease-in-out;
-    margin-top: 1rem;
   }
   
   .auth-button:hover {

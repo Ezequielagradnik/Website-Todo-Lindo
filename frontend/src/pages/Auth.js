@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Auth.css';
+import '../Auth.css';
 
 const Auth = ({ onLogin }) => {
   const [isLogin, setIsLogin] = useState(true); // Alternar entre login y register
@@ -18,14 +18,15 @@ const Auth = ({ onLogin }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form Data:', formData);
 
     if (!isLogin && formData.password !== formData.confirmPassword) {
       alert('Las contraseñas no coinciden');
       return;
     }
 
+    // Simulación de autenticación
     alert(isLogin ? 'Iniciando sesión...' : 'Registrando usuario...');
+    onLogin(); // Llama a la función para marcar como autenticado
   };
 
   return (
