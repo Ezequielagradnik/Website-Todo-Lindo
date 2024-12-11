@@ -26,7 +26,7 @@ const Checkout = () => {
     };
 
     console.log('Datos del checkout:', checkoutData);
-    alert('Procesando el pago y envío...');
+    alert('Procesando el pago y el envío...');
   };
 
   const handleMercadoPago = () => {

@@ -7,6 +7,7 @@ import Cart from './pages/Cart';
 import ProductDetails from './pages/ProductDetails';
 import Help from './pages/Help';
 import Checkout from './pages/Checkout';
+import WhatsAppButton from './components/WhatsAppButton';
 
 const App = () => (
   <>
@@ -18,6 +19,7 @@ const App = () => (
       <Route path="/help" element={<Help />} />
       <Route path="/Checkout" element={<Checkout/>} />
     </Routes>
+    <WhatsAppButton /> {}
     <Footer />
   </>
 );
