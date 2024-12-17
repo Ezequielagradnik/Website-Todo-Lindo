@@ -12,6 +12,7 @@
     z-index: 1000; /* Asegura que esté por encima de la Home */
   }
   
+
   .auth-form {
     background: rgba(255, 255, 255, 0.85); /* Fondo blanco semi-transparente */
     padding: 2rem;

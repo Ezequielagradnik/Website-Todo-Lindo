@@ -12,7 +12,7 @@ const NavBar = styled.nav`
 
 const Header = () => (
   <NavBar>
-    <h1>Todo Lindo</h1>
+    <h1> <image> <src>  </src></image> Todo Lindo</h1>
     <div>
       <Link to="/">Home</Link> | <Link to="/cart">Carrito</Link> |{' '}
       <Link to="/help">Ayuda</Link>
