@@ -63,3 +63,18 @@
     color: #0056b3;
   }
   
+  .admin-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .admin-button:hover {
+    background-color: #0056b3;
+  }
+  

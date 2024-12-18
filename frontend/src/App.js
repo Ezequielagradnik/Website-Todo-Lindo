@@ -28,6 +28,7 @@ const App = () => {
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/help" element={<Help />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/admin" element={<h1>Panel de Administración</h1>} />
         </Routes>
         <Footer />
         <WhatsAppButton />

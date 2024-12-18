@@ -1,0 +1,32 @@
+.admin-container {
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .admin-form input {
+    display: block;
+    margin: 0.5rem auto;
+    padding: 0.5rem;
+    width: 300px;
+  }
+  
+  .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .product-card {
+    background: #f4f4f4;
+    padding: 1rem;
+    border-radius: 8px;
+    width: 200px;
+  }
+  
+  .product-card img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 0.5rem;
+  }
+  
