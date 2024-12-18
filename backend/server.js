@@ -5,6 +5,8 @@ import { sequelize } from './models/index.js';
 import productRoutes from './routes/productRoutes.js';
 import cartRoutes from './routes/cartRoutes.js';
 import paymentRoutes from './routes/paymentRoutes.js';
+import UserRoutes from './routes/UserRoutes.js'
+
 
 dotenv.config();
 
@@ -16,6 +18,7 @@ app.use(express.json());
 app.use('/api/products', productRoutes);
 app.use('/api/cart', cartRoutes);
 app.use('/api/payment', paymentRoutes);
+app.use('/api/users', UserRoutes);
 
 // Conexión a la base de datos
 (async () => {

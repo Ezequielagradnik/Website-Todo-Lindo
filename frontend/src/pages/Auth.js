@@ -11,28 +11,73 @@ const Auth = ({ onLogin }) => {
     confirmPassword: '',
   });
 
+  const [loading, setLoading] = useState(false); // Estado para mostrar carga
+  const [error, setError] = useState(''); // Estado para mostrar errores
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setError('');
+    setLoading(true);
 
     if (!isLogin && formData.password !== formData.confirmPassword) {
-      alert('Las contraseñas no coinciden');
+      setError('Las contraseñas no coinciden');
+      setLoading(false);
       return;
     }
 
-    // Simulación de autenticación
-    alert(isLogin ? 'Iniciando sesión...' : 'Registrando usuario...');
-    onLogin(); // Llama a la función para marcar como autenticado
+    try {
+      const url = isLogin
+        ? 'https://ep-spring-shape-a5tgjgrc.us-east-2.aws.neon.tech/api/users/login'  // Endpoint para Login
+        : 'https://ep-spring-shape-a5tgjgrc.us-east-2.aws.neon.tech/api/users/register'; // Endpoint para Register
+
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nombre: formData.name,
+          email: formData.email,
+          password: formData.password,
+          telefono: formData.surname, // surname usado como teléfono
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Error en la solicitud');
+      }
+
+      alert(data.message);
+
+      if (isLogin) {
+        localStorage.setItem('token', data.token); // Guarda el token en localStorage
+        onLogin(); // Llama a la función para marcar como autenticado
+      }
+
+      setFormData({
+        email: '',
+        name: '',
+        surname: '',
+        password: '',
+        confirmPassword: '',
+      });
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="auth-container">
       <div className="auth-form">
         <h2>{isLogin ? 'Iniciar Sesión' : 'Registrarse'}</h2>
+        {error && <p className="auth-error">{error}</p>}
         <form onSubmit={handleSubmit}>
           {!isLogin && (
             <>
@@ -47,7 +92,7 @@ const Auth = ({ onLogin }) => {
               <input
                 type="text"
                 name="surname"
-                placeholder="Apellido"
+                placeholder="Teléfono"
                 value={formData.surname}
                 onChange={handleInputChange}
                 required
@@ -80,8 +125,8 @@ const Auth = ({ onLogin }) => {
               required
             />
           )}
-          <button type="submit" className="auth-button">
-            {isLogin ? 'Iniciar Sesión' : 'Registrarse'}
+          <button type="submit" className="auth-button" disabled={loading}>
+            {loading ? 'Procesando...' : isLogin ? 'Iniciar Sesión' : 'Registrarse'}
           </button>
         </form>
         <p>
