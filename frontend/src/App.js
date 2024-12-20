@@ -8,6 +8,7 @@ import ProductDetails from './pages/ProductDetails';
 import Help from './pages/Help';
 import Checkout from './pages/Checkout';
 import Auth from './pages/Auth';
+import Offers from './pages/Ofertas';
 import WhatsAppButton from './components/WhatsAppButton';
 
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/help" element={<Help />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/offers" element={<Offers />} />
           <Route path="/admin" element={<h1>Panel de Administración</h1>} />
         </Routes>
         <Footer />

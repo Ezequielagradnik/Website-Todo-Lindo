@@ -1,59 +1,87 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-
 const allProducts = [
-  { id: 1, name: 'Termo Lumilagro', description: 'Termo jarra térmica de vidrio de 1L con tapón a rosca.', category: 'Termos', image: 'https://via.placeholder.com/150' },
-  { id: 2, name: 'Botella Metálica', description: 'Botella metálica de 500ml con gancho para colgar.', category: 'Botellas', image: 'https://via.placeholder.com/150' },
-  { id: 3, name: 'Mate Autocebante', description: 'Termo mate autocebante con válvula de retención y bombilla de metal.', category: 'Mates', image: 'https://via.placeholder.com/150' },
-  { id: 4, name: 'Sartén de Teflón', description: 'Sartén antiadherente Nro 24 con capacidad de 1.8L.', category: 'Cocina', image: 'https://via.placeholder.com/150' },
-  { id: 5, name: 'Paellera de Teflón', description: 'Paellera antiadherente de 36cm con capacidad para 4.6L.', category: 'Cocina', image: 'https://via.placeholder.com/150' },
-  { id: 6, name: 'Mate de Madera', description: 'Mate de madera pintado a mano, ideal para regalo.', category: 'Mates', image: 'https://via.placeholder.com/150' },
-  { id: 7, name: 'Vaso Térmico', description: 'Vaso térmico de acero inoxidable con tapa antiderrame, 380ml.', category: 'Termos', image: 'https://via.placeholder.com/150' },
-  { id: 8, name: 'Wok de Teflón', description: 'Wok antiadherente de 28cm con capacidad para 4.3L.', category: 'Cocina', image: 'https://via.placeholder.com/150' },
+  { id: 1, name: 'Termo Lumilagro', price: 1000, image: 'catalog_images/termo.png' },
+  { id: 2, name: 'Botella Metálica', price: 1200, image: 'catalog_images/botella.png' },
+  { id: 3, name: 'Mate de Madera', price: 800, image: 'catalog_images/mate.png' },
+  { id: 4, name: 'Sartén de Teflón', price: 1500, image: 'catalog_images/sarten.png' },
 ];
+
 const Home = () => {
   const [products, setProducts] = useState(allProducts);
+  const [cartCount, setCartCount] = useState(0);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [maxPrice, setMaxPrice] = useState('');
 
-  const filterByCategory = (category) => {
-    if (category === 'Todos') {
-      setProducts(allProducts);
-    } else {
-      setProducts(allProducts.filter((product) => product.category === category));
-    }
+  const filterProducts = () => {
+    const filtered = allProducts.filter(
+      (p) =>
+        p.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
+        (!maxPrice || p.price <= maxPrice)
+    );
+    setProducts(filtered);
   };
 
+  const addToCart = () => setCartCount(cartCount + 1);
+
   return (
-    <div className="container">
-      {/* Sección de Bienvenida */}
-      <section className="welcome-section">
+    <div>
+      {/* Header */}
+      <nav>
+        <h1>
+          <img src="/catalog_images/logo.png" alt="Logo Todo Lindo" />
+          Todo Lindo
+        </h1>
+        <div className="cart-icon" onClick={() => (window.location.href = '/cart')}>
+          <img src="/cart.png" alt="Carrito" />
+          <span className="cart-count">{cartCount}</span>
+        </div>
+      </nav>
+
+      {/* Welcome Section */}
+      <div className="welcome-section">
         <h1>Bienvenido a Todo Lindo</h1>
-        <p>Tu bazar y jugueteria de confianza.</p>
-      </section>
-
-      {/* Botones de Filtro */}
-      <h2>Categorías</h2>
-      <div className="button-group">
-        <button onClick={() => filterByCategory('Todos')}>Todos</button>
-        <button onClick={() => filterByCategory('Cocina')}>Cocina</button>
-        <button onClick={() => filterByCategory('Termos')}>Termos</button>
-        <button onClick={() => filterByCategory('Mates')}>Mates</button>
-        <button onClick={() => filterByCategory('Botellas')}>Botellas</button>
+        <h3>Tu lugar ideal para encontrar productos increíbles</h3>
       </div>
 
-      {/* Grilla de Productos */}
-      <div className="product-grid">
-        {products.map((product) => (
-          <div key={product.id} className="product-card">
-            <img src={product.image} alt={product.name} />
-            <h3>{product.name}</h3>
-            <p>Precio: ${product.price}</p>
-            <Link to={`/product/${product.id}`}>
-              <button>Ver Detalles</button>
-            </Link>
-          </div>
-        ))}
+      {/* Main Content */}
+      <div className="container main-content">
+        {/* Filtro */}
+        <div className="filter-section">
+          <h3>Filtrar productos</h3>
+          <input
+            type="number"
+            placeholder="Precio máximo"
+            onChange={(e) => setMaxPrice(e.target.value)}
+          />
+          <button onClick={filterProducts}>Aplicar</button>
+        </div>
+
+        {/* Productos */}
+        <div className="product-grid">
+          {products.map((product) => (
+            <div key={product.id} className="product-card">
+              <img src={product.image} alt={product.name} />
+              <h3>{product.name}</h3>
+              <p>Precio: ${product.price}</p>
+              <div className="buttons">
+                <button className="add-to-cart" onClick={addToCart}>
+                  Agregar al Carrito
+                </button>
+                <Link to={`/product/${product.id}`}>
+                  <button className="details">Detalles</button>
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
+
+      {/* Footer */}
+      <footer>
+        <p>&copy; {new Date().getFullYear()} Todo Lindo. Todos los derechos reservados.</p>
+      </footer>
     </div>
   );
 };

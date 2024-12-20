@@ -7,9 +7,9 @@
 
 body {
   font-family: 'Arial', sans-serif;
-  line-height: 1.6;
   background-color: #f8f9fa;
-  color: #333;
+  margin: 0;
+  padding: 0;
 }
 
 /* Títulos */
@@ -26,38 +26,105 @@ a {
 }
 
 a:hover {
-  color: #ff7f50;
+  color: #db967d;
 }
 
-/* Contenedor principal */
 .container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
 }
 
-/* Estilo del header */
+
+/* Header NavBar */
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(135deg, #ff7f50, #ff4e00);
+  padding: 1rem 2rem;
+  background-color: #007bff; /* Nuevo color elegante */
   color: white;
-  padding: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+nav h1 {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #ecf0f1; /* Blanco suave */
+}
+
+nav h1 img {
+  height: 50px; 
+  width: auto; 
+  margin-right: 0.5rem; 
+}
+
+nav .links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 nav a {
-  color: white;
-  margin: 0 0.5rem;
-  transition: transform 0.2s;
+  color: #ecf0f1; /* Texto blanco suave */
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
 
 nav a:hover {
-  text-decoration: underline;
-  transform: scale(1.1);
+  color: #ffffff; /* Amarillo suave */
 }
+
+/* Dropdown */
+nav .dropdown {
+  position: relative;
+}
+
+nav .dropdown > span {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+nav .dropdown ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #ffffff; /* Fondo blanco */
+  color: #333333; /* Texto oscuro */
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  z-index: 1000;
+}
+
+nav .dropdown:hover ul {
+  display: block;
+}
+
+nav .dropdown li {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+nav .dropdown li:hover {
+  background-color: #f4f4f4;
+}
+
+nav .dropdown li a {
+  color: #333333;
+  text-decoration: none;
+}
+
+nav .dropdown li a:hover {
+  color: #007bff;
+}
+
 
 /* Footer */
 footer {
@@ -71,37 +138,121 @@ footer {
 
 /* Sección de bienvenida */
 .welcome-section {
-  background: linear-gradient(135deg, #ff7f50, #ff4e00);
+  background: linear-gradient(135deg, #007bff, #0056b3); /* Nuevo color azul */
   color: white;
   text-align: center;
-  padding: 2.5rem 1rem;
+  padding: 3rem 1rem;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 2rem;
   animation: fadeIn 1.5s ease-in-out;
 }
 
+
 .welcome-section h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+  margin: 0;
+  font-size: 2rem;
 }
 
-/* Botones */
-button {
+.welcome-section h3 {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  color: white;
+}
+
+.cart-icon {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.cart-icon img {
+  width: 40px;
+  height: 40px;
+}
+
+.cart-icon img:hover {
+  transform: scale(1.1);
+}
+
+.cart-count {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 0.3rem 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* Filtro de productos */
+.filter-section {
+  width: 20%;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.filter-section h3 {
+  margin-bottom: 1rem;
+}
+
+.filter-section input,
+.filter-section select {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.filter-section button {
   background-color: #28a745;
   color: white;
   border: none;
-  padding: 0.7rem 1.2rem;
-  border-radius: 8px;
+  padding: 0.5rem;
+  border-radius: 5px;
   cursor: pointer;
+}
+
+.filter-section button:hover {
+  background-color: #218838;
+}
+/* Inputs de búsqueda */
+.search-bar input {
+  width: 100%;
+  max-width: 500px;
+  padding: 0.8rem;
+  margin: 1rem auto;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
   font-size: 1rem;
-  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+  transition: border-color 0.3s ease;
+}
+
+.search-bar input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-  background-color: #218838;
+  background-color: #0056b3;
   transform: scale(1.05);
 }
+
 
 /* Botones de filtro */
 .button-group {
@@ -167,14 +318,72 @@ button:hover {
 .card button:hover, .product-card button:hover {
   background-color: #ff4e00;
 }
-
-/* Grilla de productos */
+/* Grilla de Productos */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 2rem;
-  margin: 2rem 0;
+  width: 80%;
 }
+
+.product-card {
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.product-card h3 {
+  margin: 0.5rem 0;
+}
+
+.product-card p {
+  color: #555;
+}
+
+.product-card .buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.add-to-cart {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.add-to-cart:hover {
+  background-color: #0056b3;
+}
+
+.details {
+  background-color: #ff7f50;
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.details:hover {
+  background-color: #ff4e00;
+}
+
 
 /* Estilos para carrito */
 .cart-item {
