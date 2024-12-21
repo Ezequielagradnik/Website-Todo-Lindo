@@ -1,12 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../styles.css'; // Asegúrate de importar tu archivo CSS externo
+import '../styles.css'; 
 
 const Header = ({ user }) => (
   <nav>
     <h1>
       <img src="/catalog_images/logo.png" alt="Logo Todo Lindo" height="50" />
-      Todo Lindo
     </h1>
     <div className="links">
       <Link to="/">Home</Link>
