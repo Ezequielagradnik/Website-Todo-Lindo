@@ -10,12 +10,32 @@ export const getAllProducts = async (req, res) => {
   }
 };
 
+// Obtener todos los productos x las distintas categorias y cuando se crea un nuevo producto q el admin seleccione la categoria
+export const getProductsByCategory = async (req, res) => {
+  try {
+    const { categoria } = req.params;
+
+    // Categorías permitidas
+    const categoriasPermitidas = ['Bazar', 'Juguetería', 'Librería', 'Accesorios y Organización'];
+    if (!categoriasPermitidas.includes(categoria)) {
+      return res.status(400).json({ message: `La categoría "${categoria}" no es válida` });
+    }
+
+    const products = await Product.findAll({ where: { categoria } });
+    res.status(200).json(products);
+  } catch (error) {
+    res.status(500).json({ message: 'Error al obtener productos por categoría', error });
+  }
+};
+
+
+
 // Agregar un producto
 export const addProduct = async (req, res) => {
   try {
-    const { nombre, descripcion, precio, stock, imagen_url } = req.body;
+    const { nombre, descripcion, precio, imagen_url, categoria, stock } = req.body;
 
-    const newProduct = await Product.create({ nombre, descripcion, precio, stock, imagen_url });
+    const newProduct = await Product.create({ nombre, descripcion, precio, imagen_url, categoria, stock });
     res.status(201).json(newProduct);
   } catch (error) {
     res.status(500).json({ message: 'Error al agregar producto', error });

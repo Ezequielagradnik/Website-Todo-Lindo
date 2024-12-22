@@ -19,3 +19,46 @@ Content-Type: application/json
 }
 
 
+### Obtener todos los productos
+GET http://localhost:4000/api/products
+Content-Type: application/json
+
+
+
+### Obtener productos por categoría
+GET http://localhost:4000/api/products/categoria/Bazar
+Content-Type: application/json
+
+
+
+### Agregar un producto
+POST http://localhost:4000/api/products
+Content-Type: application/json
+
+{
+  "nombre": "Taza de Cerámica",
+  "descripcion": "Taza blanca de cerámica con diseño personalizado",
+  "precio": 500,
+  "imagen_url": ".",
+  "categoria": "Bazar",
+  "stock": "100"
+}
+
+
+
+
+### Actualizar un producto
+PUT http://localhost:4000/api/products/1
+Content-Type: application/json
+
+{
+  "nombre": "Taza de Cerámica Actualizada",
+  "descripcion": "Nueva descripción para la taza",
+  "precio": 550,
+  "stock": 20,
+  "imagen_url": "."
+}
+
+### Eliminar un producto
+DELETE http://localhost:4000/api/products/1
+Content-Type: application/json

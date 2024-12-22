@@ -7,9 +7,10 @@ const Product = sequelize.define('Product', {
   descripcion: { type: DataTypes.STRING, allowNull: false },
   precio: { type: DataTypes.FLOAT, allowNull: false },
   stock: { type: DataTypes.INTEGER, allowNull: false, defaultValue: 0 },
-  imagen_url: { type: DataTypes.STRING, allowNull: true },
+  imagen_url: { type: DataTypes.STRING, allowNull: false },
+  categoria: {type:DataTypes.ENUM("Bazar", "Juguetería", "Librería", "Accesorios y Organización"), allowNull:false}
 }, {
-  timestamps: true, // createdAt y updatedAt
+  timestamps: true, 
 });
 
 export default Product;

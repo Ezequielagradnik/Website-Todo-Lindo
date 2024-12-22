@@ -1,13 +1,14 @@
 import express from 'express';
-import { getAllProducts, addProduct, updateProduct, deleteProduct } from '../controllers/productController.js';
+import { getAllProducts, addProduct, updateProduct, deleteProduct, getProductsByCategory, } from '../controllers/productController.js';
 import { verifyToken, verifyAdmin } from '../middlewares/authMiddleware.js';
 
 const router = express.Router();
 
 // Rutas protegidas por admin
 router.get('/', getAllProducts);
-router.post('/', verifyToken, verifyAdmin, addProduct);
-router.put('/:id', verifyToken, verifyAdmin, updateProduct);
-router.delete('/:id', verifyToken, verifyAdmin, deleteProduct);
+router.post('/', addProduct);
+router.put('/:id',  updateProduct);
+router.delete('/:id',  deleteProduct);
+router.get('/categoria/:categoria', getProductsByCategory);
 
 export default router;
