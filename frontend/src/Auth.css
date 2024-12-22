@@ -1,79 +1,83 @@
+/* Contenedor principal */
 .auth-container {
-    position: fixed; /* Permanece fijo en la pantalla */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(10px); /* Desenfoque del contenido detrás */
-    background-color: rgba(0, 0, 0, 0.2); /* Oscurece un poco */
-    z-index: 1000; /* Asegura que esté por encima de la Home */
-  }
-  
+  width: 100%;
+  max-width: 400px;
+  margin: 3rem auto;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
 
-  .auth-form {
-    background: rgba(255, 255, 255, 0.85); /* Fondo blanco semi-transparente */
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    max-width: 400px;
-    width: 100%;
+/* Título */
+.auth-container h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+/* Formulario */
+.auth-form input {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.auth-form input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Botón */
+.auth-button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.auth-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Switch entre login/register */
+.auth-switch {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.auth-switch a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.auth-switch a:hover {
+  text-decoration: underline;
+}
+
+/* Efectos adicionales */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
   }
-  
-  .auth-form h2 {
-    margin-bottom: 1rem;
-    color: #333;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .auth-form input {
-    display: block;
-    width: 100%;
-    margin: 0.5rem 0;
-    padding: 0.8rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-  }
-  
-  .auth-button {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 0.8rem 1.2rem;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  .auth-button:hover {
-    background-color: #218838;
-  }
-  
-  .auth-toggle {
-    color: #007bff;
-    cursor: pointer;
-    text-decoration: underline;
-  }
-  
-  .auth-toggle:hover {
-    color: #0056b3;
-  }
-  
-  .admin-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    margin-top: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  .admin-button:hover {
-    background-color: #0056b3;
-  }
+}
+
+.auth-container {
+  animation: fadeIn 0.8s ease-in-out;
+}
