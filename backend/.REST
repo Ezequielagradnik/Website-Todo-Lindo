@@ -66,3 +66,21 @@ Content-Type: application/json
 ### Eliminar un producto
 DELETE http://localhost:4000/api/products/2
 Content-Type: application/json
+
+### Agregar producto al carrito
+POST http://localhost:4000/api/cart/add
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "productId": 2,
+  "cantidad": 3
+}
+
+### Obtener productos del carrito
+GET http://localhost:4000/api/cart/1
+Content-Type: application/json
+
+### Eliminar producto del carrito
+DELETE http://localhost:4000/api/cart/1/2
+Content-Type: application/json
