@@ -8,8 +8,6 @@ const Header = ({ user }) => (
     <div className="links">
       <Link to="/">Home</Link>
       <Link to="/offers">Ofertas</Link>
-      <Link to="/cart">Carrito</Link>
-      <Link to="/help">Ayuda</Link>
       {user && user.role === 'admin' && <Link to="/admin">Admin</Link>}
       {!user && (
         <>

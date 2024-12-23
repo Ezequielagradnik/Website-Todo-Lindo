@@ -1,4 +1,5 @@
 import Product from '../models/Product.js';
+import { Op } from 'sequelize';
 
 // Obtener todos los productos
 export const getAllProducts = async (req, res) => {
@@ -28,7 +29,30 @@ export const getProductsByCategory = async (req, res) => {
   }
 };
 
+export const getProductsByPrice = async (req, res) => {
+  try {
+    const { precio } = req.params;
 
+    if (!precio || isNaN(precio)) {
+      return res.status(400).json({ message: 'Debe proporcionar un precio válido en la URL.' });
+    }
+
+    const products = await Product.findAll({
+      where: {
+        precio: {
+          [Op.lte]: parseFloat(precio),
+        },
+      },
+    });
+
+    res.status(200).json(products); 
+  } catch (error) {
+    res.status(500).json({ 
+      message: 'Error al obtener productos por precio', 
+      error: error.message || error 
+    });
+  }
+};
 
 // Agregar un producto
 export const addProduct = async (req, res) => {
