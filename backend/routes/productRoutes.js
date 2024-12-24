@@ -1,5 +1,5 @@
 import express from 'express';
-import { getAllProducts, addProduct, updateProduct, deleteProduct, getProductsByCategory,getProductsByPrice } from '../controllers/productController.js';
+import { getAllProducts, addProduct, updateProduct, deleteProduct, getProductsByCategory,getProductsByPrice,applyDiscount,clearOffer } from '../controllers/productController.js';
 import { verifyToken, verifyAdmin } from '../middlewares/authMiddleware.js';
 
 const router = express.Router();
@@ -11,5 +11,7 @@ router.put('/:id',  updateProduct);
 router.delete('/:id',  deleteProduct);
 router.get('/categoria/:categoria', getProductsByCategory);
 router.get('/price/:precio', getProductsByPrice);
+router.patch('/:id/oferta', applyDiscount);
+router.patch('/:id/oferta/clear', clearOffer);
 
 export default router;

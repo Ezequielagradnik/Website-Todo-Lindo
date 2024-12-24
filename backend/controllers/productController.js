@@ -96,3 +96,36 @@ export const deleteProduct = async (req, res) => {
     res.status(500).json({ message: 'Error al eliminar producto', error });
   }
 };
+
+export const applyDiscount = async (req, res) => {
+  const { id } = req.params; 
+  const { tipoOferta, descuento } = req.body; 
+
+  try {
+    const product = await Product.findByPk(id);
+
+    if (!product) return res.status(404).json({ message: 'Producto no encontrado' });
+
+
+    await product.update({ oferta_tipo: tipoOferta, descuento });
+    res.status(200).json({ message: 'Oferta aplicada correctamente', product });
+  } catch (error) {
+    res.status(500).json({ message: 'Error al aplicar oferta', error });
+  }
+};
+
+export const clearOffer = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const product = await Product.findByPk(id);
+
+    if (!product) return res.status(404).json({ message: 'Producto no encontrado' });
+
+    
+    await product.update({ oferta_tipo: 'ninguna', descuento: null });
+    res.status(200).json({ message: 'Oferta eliminada correctamente', product });
+  } catch (error) {
+    res.status(500).json({ message: 'Error al eliminar oferta', error });
+  }
+};

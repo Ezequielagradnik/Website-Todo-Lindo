@@ -17,6 +17,14 @@ const Product = sequelize.define('Product', {
     ),
     allowNull: false,
   },
+  oferta_tipo: {
+    type: DataTypes.ENUM('ninguna', 'descuento', '2x1'), 
+    defaultValue: 'ninguna',
+  },
+  descuento: {
+    type: DataTypes.FLOAT, 
+    allowNull: true,
+  },
 }, {
   timestamps: true, 
 });
