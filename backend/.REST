@@ -64,7 +64,7 @@ Content-Type: application/json
 }
 
 ### Eliminar un producto
-DELETE http://localhost:4000/api/products/2
+DELETE http://localhost:4000/api/products/4
 Content-Type: application/json
 
 ### Agregar producto al carrito
@@ -110,3 +110,18 @@ Content-Type: application/json
 ### Eliminar oferta
 PATCH http://localhost:4000/api/products/3/oferta/clear
 
+### Obtener los últimos ingresos (por defecto 10 productos)
+GET http://localhost:4000/api/products/latest
+Content-Type: application/json
+
+### Obtener los últimos ingresos (5 productos más recientes)
+GET http://localhost:4000/api/products/latest?limit=5
+Content-Type: application/json
+
+### Obtener los productos añadidos en los últimos 15 días
+GET http://localhost:4000/api/products/latest?days=15
+Content-Type: application/json
+
+### Obtener los 3 productos más recientes de los últimos 7 días
+GET http://localhost:4000/api/products/latest?limit=3&days=7
+Content-Type: application/json

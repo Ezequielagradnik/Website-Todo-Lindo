@@ -129,3 +129,25 @@ export const clearOffer = async (req, res) => {
     res.status(500).json({ message: 'Error al eliminar oferta', error });
   }
 };
+
+
+
+export const getLatestProducts = async (req, res) => {
+  try {
+    const { limit = 10, days = 30 } = req.query; 
+    const cutoffDate = new Date();
+    cutoffDate.setDate(cutoffDate.getDate() - days);
+
+    const latestProducts = await Product.findAll({
+      where: {
+        createdAt: { [Op.gte]: cutoffDate }, 
+      },
+      order: [['createdAt', 'DESC']],
+      limit: parseInt(limit),
+    });
+
+    res.status(200).json(latestProducts);
+  } catch (error) {
+    res.status(500).json({ message: 'Error al obtener los últimos productos', error });
+  }
+};
