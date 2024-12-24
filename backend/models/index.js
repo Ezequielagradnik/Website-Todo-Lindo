@@ -14,4 +14,5 @@ Cart.belongsTo(Product, { foreignKey: 'articulo_id' });
 User.hasMany(Order, { foreignKey: 'usuario_id', onDelete: 'SET NULL' });
 Order.belongsTo(User, { foreignKey: 'usuario_id' });
 
+
 export { User, Product, Cart, Order, sequelize };

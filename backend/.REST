@@ -84,3 +84,8 @@ Content-Type: application/json
 ### Eliminar producto del carrito
 DELETE http://localhost:4000/api/cart/1/2
 Content-Type: application/json
+
+
+### Obtener el historial de compras de un usuario
+GET http://localhost:4000/api/perfil/1
+Content-Type: application/json
