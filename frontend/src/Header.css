@@ -1,0 +1,131 @@
+/* General Header Styles */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #00bcd4;
+    padding: 1rem 2rem;
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+  
+  .logo-section {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .header-logo {
+    height: 50px;
+    width: auto;
+  }
+  
+  .header-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropdown > span {
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #555;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-transform: uppercase;
+  }
+  
+  .dropdown ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    color: #333333;
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 1000;
+  }
+  
+  .dropdown:hover ul {
+    display: block;
+  }
+  
+  .dropdown li {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+  
+  .dropdown li:hover {
+    background-color: #f4f4f4;
+  }
+  
+  .dropdown li a {
+    color: #333333;
+    text-decoration: none;
+  }
+  
+  .dropdown li a:hover {
+    color: #00bcd4;
+  }
+  
+  .offers-button {
+    background-color: red;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+  }
+  
+  .offers-button:hover {
+    background-color: rgb(255, 0, 0);
+    text-decoration-color: white;
+  }
+  
+  .search-bar {
+    align-items: center;
+    border-radius: 5px;
+  }
+  
+  
+  .search-bar img {
+    width: 20px;
+    height: 20px;
+
+  }
+  
+  
+  .icons-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .header-icon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+  
+  .header-icon:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+  }
+  
