@@ -42,7 +42,7 @@
     background-color: #555;
     color: white;
     padding: 0.5rem 1rem;
-    border-radius: 5px;
+    border-radius: 30px;
     text-transform: uppercase;
   }
   
@@ -87,7 +87,7 @@
     background-color: red;
     color: white;
     padding: 0.5rem 1.5rem;
-    border-radius: 5px;
+    border-radius: 50px;
     text-decoration: none;
     font-weight: bold;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -101,7 +101,7 @@
   
   .search-bar {
     align-items: center;
-    border-radius: 5px;
+    border-radius: 50px;
   }
   
   
@@ -118,14 +118,25 @@
     gap: 1rem;
   }
   
-  .header-icon {
-    width: 30px;
-    height: 30px;
+  .header-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #333; 
+    border-radius: 50%;
+    width: 50px;
+    height: 50px; 
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
     cursor: pointer;
   }
   
-  .header-icon:hover {
+  .header-icon-wrapper:hover {
+    background-color: #555; 
     transform: scale(1.1);
-    transition: transform 0.2s ease-in-out;
   }
   
+  .header-icon {
+    width: 24px;
+    height: 24px;
+    filter: invert(1); 
+  }
