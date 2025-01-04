@@ -10,6 +10,7 @@ import Checkout from './pages/Checkout';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Offers from './pages/Ofertas';
+import Novedades from './pages/Novedades';
 import WhatsAppButton from './components/WhatsAppButton';
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
             <Route path="/admin" element={<h1>Panel de Administración</h1>} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="category/Novedades" element={<Novedades />} />
           </Routes>
         </main>
         <Footer />

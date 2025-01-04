@@ -19,7 +19,7 @@ const Header = ({ user }) => {
           <span>▼ Explorar por categoría</span>
           <ul>
             <li>
-              <Link to="/category/bazar">Novedades</Link>
+              <Link to="/category/Novedades">Novedades</Link>
             </li>
             <li>
               <Link to="/category/Hogar">Acesorios para el hogar</Link>
