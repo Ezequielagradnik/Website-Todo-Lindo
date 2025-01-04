@@ -19,16 +19,22 @@ const Header = ({ user }) => {
           <span>▼ Explorar por categoría</span>
           <ul>
             <li>
-              <Link to="/category/bazar">Bazar</Link>
+              <Link to="/category/bazar">Novedades</Link>
             </li>
             <li>
-              <Link to="/category/jugueteria">Juguetería</Link>
+              <Link to="/category/Hogar">Acesorios para el hogar</Link>
             </li>
             <li>
-              <Link to="/category/libreria">Librería</Link>
+              <Link to="/category/Jugueteria">Jugueteria</Link>
             </li>
             <li>
-              <Link to="/category/accesorios">Accesorios</Link>
+              <Link to="/category/Libreria">Libreria</Link>
+            </li>
+            <li>
+              <Link to="/category/accesorios">Accesorios y organizacion</Link>
+            </li>
+            <li>
+              <Link to="/category/Regalos">Regalos</Link>
             </li>
           </ul>
         </div>
