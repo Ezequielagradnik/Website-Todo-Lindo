@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+
 // Mock Data for Products
 const allProducts = [
   { id: 1, name: 'Termo Lumilagro', price: 1000, image: 'catalog_images/termo.png' },
